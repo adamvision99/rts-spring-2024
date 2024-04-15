@@ -1,4 +1,4 @@
-#include <TaskScheduler.h>
+#include <TaskScheduler.h>;
 
 // Инициализируем объект планировщика задач
 Scheduler scheduler;
@@ -46,7 +46,7 @@ void setup() {
   scheduler.addTask(task5);
 
   // Задаем интервал обновления планировщика (1 мс)
-  scheduler.startPeriodic(1);
+  scheduler.init();
 }
 
 void loop() {
