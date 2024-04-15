@@ -3,41 +3,33 @@
 // Инициализируем объект планировщика задач
 Scheduler scheduler;
 
+bool state1 = HIGH, state2 = HIGH, state3 = HIGH, state4 = HIGH, state5 = HIGH;
+
 // Создаем таски для каждого из импульсов
-Task task1(10, TASK_FOREVER, [](){
-  digitalWrite(3, HIGH);
-  delayMicroseconds(5000);
-  digitalWrite(3, LOW);
-  delay(5000);
-});
+Task task1(5000, TASK_FOREVER, [](){
+  digitalWrite(3, state1);
+  state1 = !state1;
+}, nullptr, true);
 
-Task task2(1000, TASK_FOREVER, [](){
-  digitalWrite(5, HIGH);
-  delayMicroseconds(500);
-  digitalWrite(5, LOW);
-  delay(500);
-});
+Task task2(500, TASK_FOREVER, [](){
+  digitalWrite(5, state2);
+  state2 = !state2;
+}, nullptr, true);
 
-Task task3(500, TASK_FOREVER, [](){
-  digitalWrite(6, HIGH);
-  delayMicroseconds(250);
-  digitalWrite(6, LOW);
-  delay(250);
-});
+Task task3(250, TASK_FOREVER, [](){
+  digitalWrite(6, state3);
+  state3 = !state3;
+}, nullptr, true);
 
-Task task4(100, TASK_FOREVER, [](){
-  digitalWrite(9, HIGH);
-  delayMicroseconds(50);
-  digitalWrite(9, LOW);
-  delay(50);
-});
+Task task4(50, TASK_FOREVER, [](){
+  digitalWrite(9, state4);
+  state4 = !state4;
+}, nullptr, true);
 
-Task task5(50, TASK_FOREVER, [](){
-  digitalWrite(10, HIGH);
-  delayMicroseconds(25);
-  digitalWrite(10, LOW);
-  delay(25);
-});
+Task task5(25, TASK_FOREVER, [](){
+  digitalWrite(10, state5);
+  state5 = !state5;
+}, nullptr, true);
 
 void setup() {
   pinMode(3, OUTPUT);
